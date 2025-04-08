@@ -1,11 +1,11 @@
-site_name: Mkdocs Template
-site_description: A website template for using mkdocs
+site_name: Data Science for Development Studies
+site_description: A website of computational notebooks to foster data science skills for development studies.
 site_author: Qiusheng Wu
-site_url: https://giswqs.github.io/mkdocs-template
+site_url: https://cmg777.github.io/ds4ds
 
-repo_url: https://github.com/giswqs/mkdocs-template
+repo_url: https://github.com/cmg777/ds4ds
 
-copyright: "Copyright &copy; 2022 - 2025 Qiusheng Wu"
+copyright: "Copyright &copy; 2024 - 2035 Carlos Mendez"
 
 theme:
   palette:
@@ -64,5 +64,4 @@ nav:
   - Chapter 2:
       - chapter_02/colorbar.ipynb
       - chapter_02/heatmap.ipynb
-  - YouTube Channel: https://youtube.com/@giswqs
-  - Report Issues: https://github.com/giswqs/mkdocs-template/issues
+  - Report Issues: https://github.com/cmg777/ds4ds/issues
