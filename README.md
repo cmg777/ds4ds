@@ -13,3 +13,5 @@ Steps to use this template:
 - Commit the changes using Git and push changes to GitHub.
 - Enable GitHub Pages through GitHub Settings - Pages.
 - Check out the website at https://username.github.io/repo-name.
+
+That is all so far. 
