@@ -2,3 +2,5 @@
 geemap
 geopandas
 leafmap
+contextily
+splot

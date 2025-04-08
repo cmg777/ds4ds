@@ -64,4 +64,6 @@ nav:
   - Chapter 2:
       - chapter_02/colorbar.ipynb
       - chapter_02/heatmap.ipynb
+  - ESDA:
+      - esda/esda.ipynb
   - Report Issues: https://github.com/cmg777/ds4ds/issues
