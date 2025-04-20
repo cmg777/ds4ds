@@ -1,7 +1,7 @@
 # Data Science for Develelopment Studies
 ![](cover.jpg)
 
-> Mendez C. (2025) Data Science Notebooks for Development Studies. Zenodo [https://doi.org/10.5281/zenodo.15250204](https://doi.org/10.5281/zenodo.15250204)
+> Mendez C. (2025) Computational Data Science Notebooks for Development Studies. Zenodo [https://doi.org/10.5281/zenodo.15250204](https://doi.org/10.5281/zenodo.15250204)
 
 ## Basic economics
 
