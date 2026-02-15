@@ -1,22 +1,20 @@
-# Data Science for Development Studies
+# Computational Data Science Notebooks and Apps for Development Studies
+
 ![](cover.jpg)
 
 How to cite this project:
 
-> Mendez C. (2025) Computational Data Science Notebooks for Development Studies. Zenodo [https://doi.org/10.5281/zenodo.15250204](https://doi.org/10.5281/zenodo.15250204)
+> Mendez C. (2025) Computational Data Science Notebooks and Apps for Development Studies. Zenodo [https://doi.org/10.5281/zenodo.15250204](https://doi.org/10.5281/zenodo.15250204)
 
 Contribute and provide feedback at [https://github.com/cmg777/ds4ds](https://github.com/cmg777/ds4ds)
 
-## Basic statistics
+## Basic statistics and econometrics
 
 - Mendez C. (2024) [Gapminder introduction to data science using Python](https://colab.research.google.com/drive/1yQXb87X9SlwzJue_C5VQkWwnuf-RRSKH?usp=sharing)
 - Mendez C. (2025) [Introduction to statistical differences and relationships using Python](https://colab.research.google.com/drive/18Wt4yk0cXZQqWY5CRZ9GtyXf_DxvqeP6?usp=sharing)
+- Mendez C. (2025) [Statistics is about differences, relationships, and predictions](https://colab.research.google.com/drive/17GPVtS4VaFgZaazDca9zYG46hxEZLzWN?usp=sharing)
 - Mendez C. (2024) [Descriptive statistics and multi-boundary mapping using Python](https://colab.research.google.com/drive/19VEvdgzQaoZ-Hind9Nrb8LEw_RFMCxPW?usp=sharing)
-
-## Basic econometrics
-
-- Mendez C. (2025) [OLS regressions and stargazer tables using Python](https://colab.research.google.com/drive/1QDPBuwW5-Ty7rL4bif7ldxVJ1B9F5e9O?usp=sharing)
-- TBA
+- Mendez C. (2025) [Use regressions to explore relationships using Python](https://colab.research.google.com/drive/16MAqYI-SWOT6GmZHDko1PHJFWu-bkc8-?usp=sharing)
 
 ## Economic growth and development
 
@@ -29,30 +27,28 @@ Contribute and provide feedback at [https://github.com/cmg777/ds4ds](https://git
 
 - Mendez C. (2024) [Exploratory spatial data analysis of municipal development in Bolivia using Python](https://colab.research.google.com/drive/1JHf8wPxSxBdKKhXaKQZUzhEpVznKGiep?usp=sharing)
 
-
 ## Causal inference
 
 - Mendez C. (2025) [Introduction to directed acyclical graphs (DAGs) using R](https://colab.research.google.com/drive/1yzz3iheYoM1kMwnS8oA4tEdVQKSNw0aM?usp=sharing)
 - Mendez C. (2024) [Heterogeneous treatment effects via two-stage DID using R](https://colab.research.google.com/drive/1A5zxj9SU8phTTCHBkt1fQkFX1xhFbycI?usp=sharing)
-- TBA
+- Mendez C. (2025) [Synthetic control explorer: Estimate counterfactuals with weighted combinations of control units](https://cmg777.github.io/open-results/files/synthetic_control_explorer2.html)
 
 ## Machine learning
 
-- TBA
-- TBA
-  
+- Mendez C. (2025) [Introductory machine learning for econometrics: Exploring the Mincer equation in Python](https://colab.research.google.com/drive/1dV4eylUEGUWFRknaK7yK-kTgt_QtpO_G?usp=sharing)
+- Mendez C. (2025) [An interactive app to learn SHAP plots with XGBoost predictions](https://ai.studio/apps/drive/1AOCpYZvP9S58zBq3Z7mESzeUCk04Z8Bg?fullscreenApplet=true)
+
 ## Spatial econometrics
 
 - TBA
 - TBA
-  
+
 ## Bayesian econometrics
 
 - TBA
 - TBA
 
-
 ## Feature engineering and geocomputation
 
-- TBA
+- Mendez C. (2025) [Regional dynamics of luminosity-based GDP using Google Earth Engine](https://code.earthengine.google.com/b8a4fa3a96056d220bcb31b6a561cb1e)
 - TBA
