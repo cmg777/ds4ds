@@ -14,6 +14,7 @@ Contribute and provide feedback at [https://github.com/cmg777/ds4ds](https://git
 
 - Mendez C. (2024) [Gapminder introduction to data science using Python](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_gapminder_example.ipynb)
 - Mendez C. (2025) [Gapminder introduction to data science using Julia](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/julia_gapminder_example.ipynb)
+- Mendez C. (2026) [Gapminder introduction to data science using R](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/r_gapminder_example.ipynb)
 - Mendez C. (2025) [Introduction to statistical differences and relationships using Python](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_real_differences_and_relationships.ipynb)
 - Mendez C. (2025) [Statistics is about differences, relationships, and predictions](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_statistics_differences_relationships_predictions.ipynb)
 - Mendez C. (2024) [Descriptive statistics and multi-boundary mapping using Python](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_descriptive_statistics_and_multi_boundary_mapping.ipynb)
