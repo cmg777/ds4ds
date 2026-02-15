@@ -136,6 +136,21 @@
 - Removed duplicate TBA entries
 - Citation updated to match website
 
+### Descriptive content updated
+
+- Hero, meta descriptions, about section, and footer updated to frame ds4ds as "an open collection"
+- About subtitle now targets researchers, students, and practitioners
+- About Card 2 updated to include Julia alongside Python and R
+
+### Resources section updated
+
+- Removed GitHub Repository and Zenodo cards (redundant with footer/citation)
+- Added 3 new resource cards:
+  - **QuantEcon** — Python Programming Lectures for Economics and Finance (`https://python-programming.quantecon.org/intro.html`)
+  - **URFIE** — Introductory Econometrics in R, Python & Julia (`https://www.urfie.net/`)
+  - **DS4Bolivia** — Spatial Data Science for Sustainable Development in Bolivia (`https://quarcs-lab.github.io/ds4bolivia/`)
+- Resources now: Google Colab, Our World in Data, Google Earth Engine, Art of Stat, QuantEcon, URFIE, DS4Bolivia (7 total)
+
 ---
 
 ## Current project state
