@@ -222,7 +222,9 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">About</a>
                     <a href="#notebooks" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Notebooks</a>
-                    <a href="#contributors" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Contributors</a>
+                    <a href="#people" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">People</a>
+                    <a href="#community" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Community</a>
+                    <a href="#events" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Events</a>
                     <a href="#resources" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Resources</a>
                 </div>
                 <div class="flex items-center gap-4">
@@ -243,7 +245,9 @@
         <div class="px-4 py-4 space-y-3">
             <a href="#about" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">About</a>
             <a href="#notebooks" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Notebooks</a>
-            <a href="#contributors" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Contributors</a>
+            <a href="#people" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">People</a>
+            <a href="#community" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Community</a>
+            <a href="#events" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Events</a>
             <a href="#resources" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Resources</a>
         </div>
     </div>
@@ -776,64 +780,151 @@
         </div>
     </section>
 
-    <!-- Contributors Section -->
-    <section id="contributors" class="scroll-mt-20 py-16 section-primary border-t border-slate-200 dark:border-slate-700">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-12">Contributors</h2>
+    <!-- People Section -->
+    <section id="people" class="scroll-mt-20 py-16 section-primary border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-14">People</h2>
 
-            <div class="grid md:grid-cols-2 gap-10">
-                <!-- Carlos Mendez -->
-                <div class="reveal flex flex-col items-center">
-                    <img src="https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q75_lanczos_center.jpg"
-                         alt="Carlos Mendez"
-                         class="contributor-avatar w-24 h-24 rounded-full mb-4 object-cover shadow-sm border-2 border-slate-200 dark:border-slate-600">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Carlos Mendez</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mt-2">Associate Professor, Nagoya University, Japan</p>
-                    <a href="https://carlos-mendez.org" target="_blank"
-                       class="inline-flex items-center mt-4 px-5 py-2 border border-brand-600 dark:border-brand-400 text-brand-600 dark:text-brand-400 text-sm font-semibold rounded-lg hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors">
-                        Visit Website
-                        <i class="fa-solid fa-external-link ml-2 text-xs"></i>
-                    </a>
+            <!-- Editors -->
+            <div class="mb-14">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
+                    <h3 class="text-lg font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Editors</h3>
+                    <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                 </div>
+                <div class="flex justify-center">
+                    <!-- Carlos Mendez (Editor) -->
+                    <div class="reveal flex flex-col items-center max-w-xs">
+                        <img src="https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q75_lanczos_center.jpg"
+                             alt="Carlos Mendez"
+                             class="contributor-avatar w-24 h-24 rounded-full mb-4 object-cover shadow-sm border-2 border-slate-200 dark:border-slate-600">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Carlos Mendez</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mt-2">Associate Professor, Nagoya University, Japan</p>
+                        <a href="https://carlos-mendez.org" target="_blank"
+                           class="inline-flex items-center mt-4 px-5 py-2 border border-brand-600 dark:border-brand-400 text-brand-600 dark:text-brand-400 text-sm font-semibold rounded-lg hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors">
+                            Visit Website
+                            <i class="fa-solid fa-external-link ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Favio Leiva Cardenas -->
-                <div class="reveal flex flex-col items-center">
-                    <img src="https://favioleiva.github.io/images/1.Principal.jpg"
-                         alt="Favio Leiva Cardenas"
-                         class="contributor-avatar w-24 h-24 rounded-full mb-4 object-cover shadow-sm border-2 border-slate-200 dark:border-slate-600">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Favio Leiva Cardenas</h3>
-                    <p class="text-slate-600 dark:text-slate-400 mt-2">PhD Student, Nagoya University, Japan</p>
-                    <a href="https://favioleiva.github.io/" target="_blank"
-                       class="inline-flex items-center mt-4 px-5 py-2 border border-brand-600 dark:border-brand-400 text-brand-600 dark:text-brand-400 text-sm font-semibold rounded-lg hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors">
-                        Visit Website
-                        <i class="fa-solid fa-external-link ml-2 text-xs"></i>
-                    </a>
+            <!-- Contributors -->
+            <div>
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
+                    <h3 class="text-lg font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Contributors</h3>
+                    <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
+                </div>
+                <div class="flex justify-center">
+                    <!-- Favio Leiva Cardenas -->
+                    <div class="reveal flex flex-col items-center max-w-xs">
+                        <img src="https://favioleiva.github.io/images/1.Principal.jpg"
+                             alt="Favio Leiva Cardenas"
+                             class="contributor-avatar w-24 h-24 rounded-full mb-4 object-cover shadow-sm border-2 border-slate-200 dark:border-slate-600">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Favio Leiva Cardenas</h3>
+                        <p class="text-slate-600 dark:text-slate-400 mt-2">PhD Student, Nagoya University, Japan</p>
+                        <a href="https://favioleiva.github.io/" target="_blank"
+                           class="inline-flex items-center mt-4 px-5 py-2 border border-brand-600 dark:border-brand-400 text-brand-600 dark:text-brand-400 text-sm font-semibold rounded-lg hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors">
+                            Visit Website
+                            <i class="fa-solid fa-external-link ml-2 text-xs"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Community Section -->
+    <section id="community" class="scroll-mt-20 py-16 section-alt border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-6">Community</h2>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                We're using Github Discussions as a place to connect with other members of our community. We hope that you:
+            </p>
+            <ul class="text-left max-w-lg mx-auto space-y-3 text-slate-600 dark:text-slate-400 mb-10">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-circle-question text-brand-500 mt-1"></i>
+                    <span>Ask questions you're wondering about.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-lightbulb text-brand-500 mt-1"></i>
+                    <span>Share ideas.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-code text-brand-500 mt-1"></i>
+                    <span>Share your notebooks.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-comments text-brand-500 mt-1"></i>
+                    <span>Engage with other community members.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-hand-holding-heart text-brand-500 mt-1"></i>
+                    <span>Welcome others and are open-minded. Remember that this is a community we build together 💪.</span>
+                </li>
+            </ul>
+            <a href="https://github.com/cmg777/ds4ds/discussions" target="_blank"
+               class="inline-flex items-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-lg shadow-sm text-white bg-brand-500 hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <i class="fa-brands fa-github mr-2"></i> Join the Discussion
+            </a>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="scroll-mt-20 py-16 section-primary border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-6">Events</h2>
+            <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
+                We invite community members and newcomers to participate in our public events. Join us to learn, collaborate, and build together:
+            </p>
+            <ul class="text-left max-w-lg mx-auto space-y-3 text-slate-600 dark:text-slate-400 mb-10">
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-chalkboard-user text-brand-500 mt-1"></i>
+                    <span>Attend training sessions on data science methods and tools.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-laptop-code text-brand-500 mt-1"></i>
+                    <span>Design and prototype computational notebooks and apps.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-users text-brand-500 mt-1"></i>
+                    <span>Collaborate with researchers and practitioners from diverse backgrounds.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                    <i class="fa-solid fa-bell text-brand-500 mt-1"></i>
+                    <span>Subscribe on Luma to get notified when new events are announced.</span>
+                </li>
+            </ul>
+            <a href="https://luma.com/cmg" target="_blank"
+               class="inline-flex items-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-lg shadow-sm text-white bg-brand-500 hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-0.5">
+                <i class="fa-solid fa-calendar-check mr-2"></i> Subscribe on Luma
+            </a>
+        </div>
+    </section>
+
     <!-- Citation Section -->
-    <section class="py-12 section-alt border-t border-slate-200 dark:border-slate-700">
+    <section class="py-12 section-primary border-t border-slate-200 dark:border-slate-700">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-6">
                 <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white">How to Cite</h2>
             </div>
             <div class="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
                 <blockquote class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-                    Mendez C. & Leiva F. (2025) Computational Data Science Notebooks and Apps for Development Studies. Zenodo
+                    Mendez C. (2026) <em>Data Science for Development Studies: An Open Collection of Computational Notebooks and Apps.</em> Zenodo.
                     <a href="https://doi.org/10.5281/zenodo.15250204" target="_blank" class="text-brand-600 dark:text-brand-400 hover:underline">https://doi.org/10.5281/zenodo.15250204</a>
+                    Website: <a href="https://cmg777.github.io/ds4ds" target="_blank" class="text-brand-600 dark:text-brand-400 hover:underline">https://cmg777.github.io/ds4ds</a>
                 </blockquote>
             </div>
             <div class="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm mt-4">
                 <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">BibTeX</p>
-                <pre class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed overflow-x-auto"><code>@misc{mendez_leiva_2025_ds4ds,
-  author       = {Mendez, Carlos and Leiva, Favio},
-  title        = {Computational Data Science Notebooks and Apps for Development Studies},
-  year         = {2025},
+                <pre class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed overflow-x-auto"><code>@collection{mendez_2026_ds4ds,
+  author       = {Mendez, Carlos},
+  title        = {Data Science for Development Studies: An Open Collection of Computational Notebooks and Apps},
+  year         = {2026},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.15250204},
-  url          = {https://doi.org/10.5281/zenodo.15250204}
+  url          = {https://cmg777.github.io/ds4ds}
 }</code></pre>
             </div>
         </div>
@@ -961,7 +1052,9 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="#about" class="text-slate-400 hover:text-white transition-colors">About</a></li>
                         <li><a href="#notebooks" class="text-slate-400 hover:text-white transition-colors">Notebooks</a></li>
-                        <li><a href="#contributors" class="text-slate-400 hover:text-white transition-colors">Contributors</a></li>
+                        <li><a href="#people" class="text-slate-400 hover:text-white transition-colors">People</a></li>
+                        <li><a href="#community" class="text-slate-400 hover:text-white transition-colors">Community</a></li>
+                        <li><a href="#events" class="text-slate-400 hover:text-white transition-colors">Events</a></li>
                         <li><a href="#resources" class="text-slate-400 hover:text-white transition-colors">Resources</a></li>
                     </ul>
                 </div>

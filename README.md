@@ -1,10 +1,12 @@
-# Computational Data Science Notebooks and Apps for Development Studies
+# Data Science for Development Studies
+
+## An Open Collection of Computational Notebooks and Apps
 
 ![](cover.jpg)
 
 How to cite this project:
 
-> Mendez C. & Leiva F. (2025) Computational Data Science Notebooks and Apps for Development Studies. Zenodo [https://doi.org/10.5281/zenodo.15250204](https://doi.org/10.5281/zenodo.15250204)
+> Mendez C. (2026) *Data Science for Development Studies: An Open Collection of Computational Notebooks and Apps.* Zenodo. [https://doi.org/10.5281/zenodo.15250204](https://doi.org/10.5281/zenodo.15250204) Website: [https://cmg777.github.io/ds4ds](https://cmg777.github.io/ds4ds)
 
 Contribute and provide feedback at [https://github.com/cmg777/ds4ds](https://github.com/cmg777/ds4ds)
 
@@ -20,7 +22,7 @@ Contribute and provide feedback at [https://github.com/cmg777/ds4ds](https://git
 ## Economic growth and development
 
 - Mendez C. (2025) [Introduction to growth equations using Python](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_introduction_to_growth_equations.ipynb)
-- Mendez C. &  Leiva F. (2023) [The Solow growth model and its convergence prediction using Python](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_solow_growth_model.ipynb)
+- Mendez C. & Leiva F. (2023) [The Solow growth model and its convergence prediction using Python](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_solow_growth_model.ipynb)
 - Mendez C. (2023) [The Solow growth model and its convergence prediction using R](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/r_solow_growth_model.ipynb)
 - Mendez C. (2021) [Convergence clubs in labor productivity and its proximate sources using R](https://colab.research.google.com/github/cmg777/ds4ds/blob/main/r_convergence_clubs_labor_productivity.ipynb)
 
@@ -42,14 +44,25 @@ Contribute and provide feedback at [https://github.com/cmg777/ds4ds](https://git
 ## Spatial econometrics
 
 - TBA
-- TBA
 
 ## Bayesian econometrics
 
-- TBA
 - TBA
 
 ## Feature engineering and geocomputation
 
 - Mendez C. (2025) [Regional dynamics of luminosity-based GDP using Google Earth Engine](https://code.earthengine.google.com/b8a4fa3a96056d220bcb31b6a561cb1e)
-- TBA
+
+## Community
+
+We're using Github Discussions as a place to connect with other members of our community. Join the discussion at [https://github.com/cmg777/ds4ds/discussions](https://github.com/cmg777/ds4ds/discussions)
+
+## Events
+
+Join our public events for training sessions and to design prototype computational notebooks and apps. Events are announced on Luma: [https://luma.com/cmg](https://luma.com/cmg)
+
+## People
+
+**Editor:** Carlos Mendez — Associate Professor, Nagoya University, Japan
+
+**Contributors:** Favio Leiva Cardenas — PhD Student, Nagoya University, Japan

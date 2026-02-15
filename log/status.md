@@ -99,6 +99,43 @@
 - **Citation updated**: added Favio Leiva Cardenas as coauthor + BibTeX block
 - **Visual refresh**: custom typography (Plus Jakarta Sans + Inter), animated gradient hero text, dot pattern background, stats bar with count-up animation, wave section dividers, enhanced card hover effects, scroll-reveal animations, contributor avatar glow
 
+## 2026-02-15: Website content and structure updates
+
+### People section reorganized
+
+- Restructured into **Editors** (Carlos Mendez) and **Contributors** (Favio Leiva Cardenas)
+- Navigation bar label changed from "Contributors" to "People"
+
+### Citation reformatted
+
+- Changed to open collection format: `Mendez C. (2026) Data Science for Development Studies: An Open Collection of Computational Notebooks and Apps. Zenodo.`
+- BibTeX updated: `@collection` type, `author` field, year 2026
+- Website URL added: `https://cmg777.github.io/ds4ds`
+- BibTeX `url` field now points to website instead of DOI
+
+### Community section added
+
+- GitHub Discussions as community platform
+- 5 bullet points encouraging participation (ask questions, share ideas, share notebooks, engage, welcome others)
+- CTA button linking to `https://github.com/cmg777/ds4ds/discussions`
+
+### Events section added
+
+- Encourages participation in public training sessions and prototype design
+- Events announced on Luma
+- CTA button linking to `https://luma.com/cmg`
+
+### Navigation updated
+
+- Desktop, mobile, and footer nav now include: About, Notebooks, People, Community, Events, Resources
+
+### README.md updated
+
+- Title changed to "Data Science for Development Studies" with subtitle "An Open Collection of Computational Notebooks and Apps"
+- Added Community, Events, and People sections
+- Removed duplicate TBA entries
+- Citation updated to match website
+
 ---
 
 ## Current project state
@@ -127,15 +164,12 @@ All notebooks follow `{language}_{topic}.ipynb`:
 ### Website (index.html)
 
 - Single-page site with Tailwind CSS, dark mode (default), responsive design
-- Sections: Hero, Stats Bar, About, Notebooks (8 topic groups with search/filter), Contributors, Citation, Resources, Footer
+- Sections: Hero, Stats Bar, About, Notebooks (8 topic groups with search/filter), People (Editors + Contributors), Community, Events, Citation, Resources, Footer
+- Navigation: About, Notebooks, People, Community, Events, Resources
 - Google Fonts: Plus Jakarta Sans (headings), Inter (body), JetBrains Mono (code)
 - Animations: gradient text, scroll-reveal, count-up stats, wave dividers, card hover, contributor glow
 - Filter bar: All, Python, R, Julia, Apps
-- Contributors: Carlos Mendez, Favio Leiva Cardenas
-- Citation: APA + BibTeX (Mendez C. & Leiva F.)
-
-### Uncommitted changes
-
-- 13 notebook renames (staged via `git mv`)
-- `julia_gapminder_example.ipynb` (new, untracked)
-- `index.html`, `README.md`, `log/status.md` (modified, unstaged)
+- Editor: Carlos Mendez | Contributor: Favio Leiva Cardenas
+- Citation: APA + BibTeX — Mendez C. (2026), open collection format
+- Community: GitHub Discussions (`https://github.com/cmg777/ds4ds/discussions`)
+- Events: Luma (`https://luma.com/cmg`)
