@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ds4ds: Data Science for Development Studies</title>
-    <meta name="description" content="Computational data science notebooks and apps for development studies using Python, R, and AI in the cloud.">
+    <meta name="description" content="Computational data science notebooks and apps for development studies using Python, R, Julia, and AI in the cloud.">
+    <meta property="og:title" content="ds4ds: Data Science for Development Studies">
+    <meta property="og:description" content="Computational notebooks and apps for development studies using Python, R, Julia, and AI in the cloud.">
+    <meta property="og:image" content="cover.jpg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://colab.research.google.com">
@@ -25,7 +31,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -36,7 +42,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                     colors: {
@@ -73,14 +80,71 @@
             border: 1px solid rgba(51, 65, 85, 0.5);
         }
         .gradient-text {
-            background: linear-gradient(135deg, #052e16 0%, #16a34a 100%);
+            background: linear-gradient(135deg, #052e16, #16a34a, #059669, #052e16);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
         }
         .dark .gradient-text {
-            background: linear-gradient(135deg, #4ade80 0%, #86efac 100%);
+            background: linear-gradient(135deg, #4ade80, #86efac, #34d399, #4ade80);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle, #16a34a 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.07;
+        }
+        .dark .hero-pattern {
+            background-image: radial-gradient(circle, #4ade80 1px, transparent 1px);
+            opacity: 0.05;
+        }
+        .notebook-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .notebook-card:hover {
+            transform: scale(1.02) translateY(-2px);
+            border-color: #16a34a;
+            box-shadow: 0 10px 25px -5px rgba(22, 163, 74, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .dark .notebook-card:hover {
+            border-color: #4ade80;
+            box-shadow: 0 10px 25px -5px rgba(74, 222, 128, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contributor-avatar {
+            transition: all 0.3s ease;
+        }
+        .contributor-avatar:hover {
+            box-shadow: 0 0 20px rgba(22, 163, 74, 0.4);
+            transform: scale(1.05);
+        }
+        .dark .contributor-avatar:hover {
+            box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+        }
+        .wave-divider {
+            position: relative;
+            margin-top: -1px;
+        }
+        .wave-divider svg {
+            display: block;
+            width: 100%;
+            height: 40px;
         }
         .lang-tag {
             font-size: 0.65rem;
@@ -98,9 +162,54 @@
         .dark .lang-app { background: #7c3aed30; color: #a78bfa; }
         .lang-gee { background: #ea580c20; color: #ea580c; }
         .dark .lang-gee { background: #ea580c30; color: #fb923c; }
+        .lang-julia { background: #9558b220; color: #9558b2; }
+        .dark .lang-julia { background: #9558b230; color: #b87ee0; }
+        .section-primary {
+            background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+        }
+        .dark .section-primary {
+            background: linear-gradient(135deg, #1e293b 0%, #162419 100%);
+        }
+        .section-alt {
+            background: linear-gradient(135deg, #f8fafc 0%, #ecfdf5 100%);
+        }
+        .dark .section-alt {
+            background: linear-gradient(135deg, #0f172a 0%, #0c1a14 100%);
+        }
+        .filter-btn {
+            padding: 0.35rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            border: 1px solid;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .filter-btn.active {
+            background: #16a34a;
+            color: #fff;
+            border-color: #16a34a;
+        }
+        .filter-btn:not(.active) {
+            background: transparent;
+            color: #64748b;
+            border-color: #cbd5e1;
+        }
+        .dark .filter-btn:not(.active) {
+            color: #94a3b8;
+            border-color: #475569;
+        }
+        .filter-btn:not(.active):hover {
+            border-color: #16a34a;
+            color: #16a34a;
+        }
+        .dark .filter-btn:not(.active):hover {
+            border-color: #4ade80;
+            color: #4ade80;
+        }
     </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
+<body class="section-alt text-slate-800 dark:text-slate-200 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-panel shadow-sm transition-all duration-300">
@@ -108,12 +217,12 @@
             <div class="flex justify-between h-16 items-center">
                 <div class="flex-shrink-0 flex items-center gap-2">
                     <i class="fa-solid fa-globe text-brand-600 dark:text-brand-400 text-xl"></i>
-                    <span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">ds<span class="text-brand-600 dark:text-brand-400">4</span>ds</span>
+                    <span class="font-display font-bold text-xl tracking-tight text-slate-900 dark:text-white">ds<span class="text-brand-600 dark:text-brand-400">4</span>ds</span>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">About</a>
                     <a href="#notebooks" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Notebooks</a>
-                    <a href="#author" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Author</a>
+                    <a href="#contributors" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Contributors</a>
                     <a href="#resources" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium transition-colors">Resources</a>
                 </div>
                 <div class="flex items-center gap-4">
@@ -134,7 +243,7 @@
         <div class="px-4 py-4 space-y-3">
             <a href="#about" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">About</a>
             <a href="#notebooks" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Notebooks</a>
-            <a href="#author" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Author</a>
+            <a href="#contributors" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Contributors</a>
             <a href="#resources" class="block py-2 text-slate-600 dark:text-slate-300 hover:text-brand-600 font-medium transition-colors" onclick="toggleMobileMenu()">Resources</a>
         </div>
     </div>
@@ -143,6 +252,7 @@
     <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
         <div class="absolute inset-0 -z-10">
             <div class="absolute inset-0 bg-gradient-to-br from-brand-50 to-white dark:from-slate-900 dark:to-slate-800 opacity-80 dark:opacity-100"></div>
+            <div class="absolute inset-0 hero-pattern"></div>
             <svg class="absolute right-0 top-0 h-full w-1/2 translate-x-1/2 transform text-brand-100 dark:text-slate-800 opacity-50 dark:opacity-30" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                 <polygon points="50,0 100,0 50,100 0,100" />
             </svg>
@@ -154,14 +264,14 @@
                 <!-- Hero Content -->
                 <div class="lg:col-span-6 text-center lg:text-left">
                     <div class="inline-flex items-center px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900 text-brand-700 dark:text-brand-200 text-sm font-semibold mb-6">
-                        <i class="fa-solid fa-earth-americas mr-2"></i> Python, R & AI for Development
+                        <i class="fa-solid fa-earth-americas mr-2"></i> Python, R, Julia & AI for Development
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
+                    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white mb-6 leading-tight">
                         Data Science for<br>
                         <span class="gradient-text">Development Studies</span>
                     </h1>
                     <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Computational notebooks and apps for development studies using Python, R, and AI in the cloud.
+                        Computational notebooks and apps for development studies using Python, R, Julia, and AI in the cloud.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="#notebooks" class="inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-base font-semibold rounded-lg shadow-sm text-white bg-brand-500 hover:bg-brand-600 transition-all hover:shadow-lg hover:-translate-y-0.5">
@@ -175,7 +285,7 @@
                     <p class="mt-6 text-sm text-slate-500 dark:text-slate-400 font-medium">
                         <i class="fa-solid fa-check text-green-500 mr-1"></i> Zero Installation
                         <span class="mx-2">&bull;</span>
-                        <i class="fa-solid fa-check text-green-500 mr-1"></i> Python & R
+                        <i class="fa-solid fa-check text-green-500 mr-1"></i> Python, R & Julia
                         <span class="mx-2">&bull;</span>
                         <i class="fa-solid fa-check text-green-500 mr-1"></i> Interactive Learning
                     </p>
@@ -196,18 +306,50 @@
         </div>
     </section>
 
+    <!-- Stats Bar -->
+    <section class="py-10 section-alt border-t border-slate-200 dark:border-slate-700" id="statsBar">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
+                <div class="reveal">
+                    <p class="text-3xl font-bold text-brand-600 dark:text-brand-400 font-display" data-count="14">0</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Notebooks</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-3xl font-bold text-brand-600 dark:text-brand-400 font-display" data-count="3">0</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Interactive Apps</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-3xl font-bold text-brand-600 dark:text-brand-400 font-display" data-count="4">0</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Languages</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-3xl font-bold text-brand-600 dark:text-brand-400 font-display">&infin;</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Cloud-based</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,20 C300,40 600,0 1200,20 L1200,40 L0,40 Z" class="fill-white dark:fill-slate-800" style="opacity:0.5"/>
+            <path d="M0,25 C400,5 800,35 1200,15 L1200,40 L0,40 Z" class="fill-white dark:fill-slate-800" style="opacity:0.3"/>
+        </svg>
+    </div>
+
     <!-- About Section -->
-    <section id="about" class="scroll-mt-20 py-16 bg-white dark:bg-slate-800">
+    <section id="about" class="scroll-mt-20 py-16 section-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Why ds4ds?</h2>
+                <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Why ds4ds?</h2>
                 <p class="mt-4 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
                     Learning data science for development should be accessible, interactive, and applied.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-2xl bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-amber-100 dark:bg-amber-900/50 rounded-xl flex items-center justify-center mb-4 text-amber-600 dark:text-amber-400">
                         <i class="fa-solid fa-book-open text-2xl"></i>
                     </div>
@@ -217,7 +359,7 @@
                     </p>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-2xl bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-brand-100 dark:bg-brand-900/50 rounded-xl flex items-center justify-center mb-4 text-brand-600 dark:text-brand-400">
                         <i class="fa-solid fa-code text-2xl"></i>
                     </div>
@@ -227,7 +369,7 @@
                     </p>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-2xl bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="w-12 h-12 bg-teal-100 dark:bg-teal-900/50 rounded-xl flex items-center justify-center mb-4 text-teal-600 dark:text-teal-400">
                         <i class="fa-solid fa-earth-americas text-2xl"></i>
                     </div>
@@ -240,88 +382,138 @@
         </div>
     </section>
 
+    <!-- Wave Divider -->
+    <div class="wave-divider">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,15 C300,35 900,5 1200,25 L1200,40 L0,40 Z" class="fill-slate-50 dark:fill-slate-900" style="opacity:0.5"/>
+            <path d="M0,20 C500,0 700,40 1200,10 L1200,40 L0,40 Z" class="fill-slate-50 dark:fill-slate-900" style="opacity:0.3"/>
+        </svg>
+    </div>
+
     <!-- Notebooks Section -->
-    <section id="notebooks" class="scroll-mt-20 py-20 bg-slate-50 dark:bg-slate-900">
+    <section id="notebooks" class="scroll-mt-20 py-20 section-alt">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Notebooks & Apps</h2>
+                <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Notebooks & Apps <span class="text-base font-normal text-slate-500 dark:text-slate-400">(17 resources)</span></h2>
                 <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Interactive computational resources organized by topic.</p>
             </div>
 
+            <!-- Search and Filter -->
+            <div class="flex flex-col sm:flex-row gap-3 mb-10 max-w-xl mx-auto items-center">
+                <div class="relative flex-1 w-full">
+                    <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="searchInput" placeholder="Search notebooks..."
+                           class="w-full pl-9 pr-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all">
+                </div>
+                <div class="flex gap-2 flex-shrink-0">
+                    <button data-filter="all" class="filter-btn active">All</button>
+                    <button data-filter="python" class="filter-btn">Python</button>
+                    <button data-filter="r" class="filter-btn">R</button>
+                    <button data-filter="julia" class="filter-btn">Julia</button>
+                    <button data-filter="app" class="filter-btn">Apps</button>
+                </div>
+            </div>
+
+            <!-- No results message -->
+            <div id="noResults" class="hidden text-center py-12">
+                <i class="fa-solid fa-search text-3xl text-slate-300 dark:text-slate-600 mb-3"></i>
+                <p class="text-slate-500 dark:text-slate-400 font-medium">No notebooks match your search.</p>
+            </div>
+
             <!-- Part: Basic Statistics and Econometrics -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
-                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Basic Statistics and Econometrics</h3>
+                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Basic Statistics and Econometrics <span class="text-sm font-normal text-slate-400 dark:text-slate-500">(6)</span></h3>
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                 </div>
                 <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
 
                     <!-- Gapminder -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="gapminder introduction to data science">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Gapminder introduction to data science</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Explore life expectancy, GDP, and population with the Gapminder dataset</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2024)</p>
-                            <a href="https://colab.research.google.com/drive/1yQXb87X9SlwzJue_C5VQkWwnuf-RRSKH?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_gapminder_example.ipynb" target="_blank" class="self-start">
+                                <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Gapminder Julia -->
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="julia" data-title="gapminder introduction to data science julia">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center justify-between">
+                                <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Gapminder introduction to data science</h4>
+                                <span class="lang-tag lang-julia">Julia</span>
+                            </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Explore life expectancy, GDP, and population with the Gapminder dataset</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/julia_gapminder_example.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Statistical differences -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="introduction to statistical differences and relationships">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Introduction to statistical differences and relationships</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Learn t-tests, chi-squared tests, and correlation analysis</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
-                            <a href="https://colab.research.google.com/drive/18Wt4yk0cXZQqWY5CRZ9GtyXf_DxvqeP6?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_real_differences_and_relationships.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Statistics fundamentals -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="statistics is about differences relationships and predictions">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Statistics is about differences, relationships, and predictions</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">From hypothesis testing to regression predictions in one workflow</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
-                            <a href="https://colab.research.google.com/drive/17GPVtS4VaFgZaazDca9zYG46hxEZLzWN?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_statistics_differences_relationships_predictions.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Descriptive statistics -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="descriptive statistics and multi-boundary mapping">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Descriptive statistics and multi-boundary mapping</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Summary statistics and choropleth maps across administrative boundaries</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2024)</p>
-                            <a href="https://colab.research.google.com/drive/19VEvdgzQaoZ-Hind9Nrb8LEw_RFMCxPW?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_descriptive_statistics_and_multi_boundary_mapping.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Regressions -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="use regressions to explore relationships">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Use regressions to explore relationships</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">OLS regression, diagnostics, and interpretation for development data</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
-                            <a href="https://colab.research.google.com/drive/16MAqYI-SWOT6GmZHDko1PHJFWu-bkc8-?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_regressions_to_explore_relationships.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
@@ -330,65 +522,69 @@
             </div>
 
             <!-- Part: Economic Growth and Development -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
-                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Economic Growth and Development</h3>
+                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Economic Growth and Development <span class="text-sm font-normal text-slate-400 dark:text-slate-500">(4)</span></h3>
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                 </div>
                 <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
 
                     <!-- Growth equations -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="introduction to growth equations">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Introduction to growth equations</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Growth rates, log-linear models, and cross-country comparisons</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
-                            <a href="https://colab.research.google.com/drive/1HexTTpbPJclnpc6gfRKxl46s5t4FYSEH?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_introduction_to_growth_equations.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Solow Python -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="the solow growth model and its convergence prediction python">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">The Solow growth model and its convergence prediction</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Simulate the Solow model and test its convergence prediction</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. & Leiva F. (2023)</p>
-                            <a href="https://colab.research.google.com/drive/1mTgF08Jbf6oNxONbGHyWJZrkygiX0E9N?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_solow_growth_model.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Solow R -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="r" data-title="the solow growth model and its convergence prediction r">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">The Solow growth model and its convergence prediction</h4>
                                 <span class="lang-tag lang-r">R</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">The same Solow model and convergence analysis implemented in R</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2023)</p>
-                            <a href="https://colab.research.google.com/drive/1MbagABPt4e38e6LhgLuaoBCheuA7ZJ85?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/r_solow_growth_model.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Convergence clubs -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="r" data-title="convergence clubs in labor productivity and its proximate sources">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Convergence clubs in labor productivity and its proximate sources</h4>
                                 <span class="lang-tag lang-r">R</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Identify groups of economies converging to different steady states</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2021)</p>
-                            <a href="https://colab.research.google.com/drive/1GjO43UJIhtqX39qja5yUl4j9suwKIpMl?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/r_convergence_clubs_labor_productivity.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
@@ -397,23 +593,24 @@
             </div>
 
             <!-- Part: Exploratory Data Analysis -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
-                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Exploratory Data Analysis</h3>
+                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Exploratory Data Analysis <span class="text-sm font-normal text-slate-400 dark:text-slate-500">(1)</span></h3>
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                 </div>
                 <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
 
                     <!-- ESDA Bolivia -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="exploratory spatial data analysis of municipal development in bolivia">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Exploratory spatial data analysis of municipal development in Bolivia</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Spatial autocorrelation, Moran's I, and LISA maps for Bolivia</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2024)</p>
-                            <a href="https://colab.research.google.com/drive/1JHf8wPxSxBdKKhXaKQZUzhEpVznKGiep?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_esda_municipal_development_bolivia.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
@@ -422,50 +619,53 @@
             </div>
 
             <!-- Part: Causal Inference -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
-                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Causal Inference</h3>
+                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Causal Inference <span class="text-sm font-normal text-slate-400 dark:text-slate-500">(3)</span></h3>
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                 </div>
                 <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
 
                     <!-- DAGs -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="r" data-title="introduction to directed acyclical graphs dags">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Introduction to directed acyclical graphs (DAGs)</h4>
                                 <span class="lang-tag lang-r">R</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Use causal diagrams to identify confounders and guide regression design</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
-                            <a href="https://colab.research.google.com/drive/1yzz3iheYoM1kMwnS8oA4tEdVQKSNw0aM?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/r_introduction_to_DAGs.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- DID -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="r" data-title="heterogeneous treatment effects via two-stage did">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Heterogeneous treatment effects via two-stage DID</h4>
                                 <span class="lang-tag lang-r">R</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Estimate heterogeneous treatment effects using two-stage DID</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2024)</p>
-                            <a href="https://colab.research.google.com/drive/1A5zxj9SU8phTTCHBkt1fQkFX1xhFbycI?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/r_heterogeneous_treatment_effects_DID.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- Synthetic Control -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="app" data-title="synthetic control explorer counterfactuals">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Synthetic control explorer</h4>
                                 <span class="lang-tag lang-app">App</span>
                             </div>
-                            <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025) &mdash; Estimate counterfactuals with weighted combinations of control units</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Build counterfactuals using weighted combinations of control units</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
                             <a href="https://cmg777.github.io/open-results/files/synthetic_control_explorer2.html" target="_blank"
                                class="self-start inline-flex items-center px-4 py-1.5 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-xs font-semibold rounded-md hover:bg-purple-200 dark:hover:bg-purple-900/60 transition-colors">
                                 <i class="fa-solid fa-arrow-up-right-from-square mr-1.5"></i> Open App
@@ -476,35 +676,37 @@
             </div>
 
             <!-- Part: Machine Learning -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
-                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Machine Learning</h3>
+                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Machine Learning <span class="text-sm font-normal text-slate-400 dark:text-slate-500">(2)</span></h3>
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                 </div>
                 <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
 
                     <!-- ML Mincer -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="python" data-title="introductory machine learning for econometrics exploring the mincer equation">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Introductory machine learning for econometrics: Exploring the Mincer equation</h4>
                                 <span class="lang-tag lang-python">Python</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Compare OLS, Lasso, Random Forest, and XGBoost on earnings data</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
-                            <a href="https://colab.research.google.com/drive/1dV4eylUEGUWFRknaK7yK-kTgt_QtpO_G?usp=sharing" target="_blank" class="self-start">
+                            <a href="https://colab.research.google.com/github/cmg777/ds4ds/blob/main/python_introductory_ml_mincer_equation.ipynb" target="_blank" class="self-start">
                                 <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" class="h-7">
                             </a>
                         </div>
                     </div>
 
                     <!-- SHAP App -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="app" data-title="interactive app to learn shap plots with xgboost predictions">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">An interactive app to learn SHAP plots with XGBoost predictions</h4>
                                 <span class="lang-tag lang-app">App</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Interactively explore SHAP plots to understand XGBoost predictions</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
                             <a href="https://ai.studio/apps/drive/1AOCpYZvP9S58zBq3Z7mESzeUCk04Z8Bg?fullscreenApplet=true" target="_blank"
                                class="self-start inline-flex items-center px-4 py-1.5 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-xs font-semibold rounded-md hover:bg-purple-200 dark:hover:bg-purple-900/60 transition-colors">
@@ -516,7 +718,7 @@
             </div>
 
             <!-- Part: Spatial Econometrics (TBA) -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                     <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Spatial Econometrics</h3>
@@ -531,7 +733,7 @@
             </div>
 
             <!-- Part: Bayesian Econometrics (TBA) -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                     <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Bayesian Econometrics</h3>
@@ -546,21 +748,22 @@
             </div>
 
             <!-- Part: Feature Engineering and Geocomputation -->
-            <div class="mb-12">
+            <div class="mb-12 notebook-section">
                 <div class="flex items-center gap-4 mb-6">
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
-                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Feature Engineering and Geocomputation</h3>
+                    <h3 class="text-xl font-bold text-brand-800 dark:text-brand-300 whitespace-nowrap">Feature Engineering and Geocomputation <span class="text-sm font-normal text-slate-400 dark:text-slate-500">(1)</span></h3>
                     <div class="h-px bg-slate-300 dark:bg-slate-600 flex-1"></div>
                 </div>
                 <div class="grid gap-4 md:grid-cols-1 lg:grid-cols-2">
 
                     <!-- Google Earth Engine -->
-                    <div class="bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="notebook-card reveal bg-white dark:bg-slate-800 p-5 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm" data-lang="gee" data-title="regional dynamics of luminosity-based gdp using google earth engine">
                         <div class="flex flex-col gap-3">
                             <div class="flex items-center justify-between">
                                 <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">Regional dynamics of luminosity-based GDP using Google Earth Engine</h4>
                                 <span class="lang-tag lang-gee">GEE</span>
                             </div>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">Map regional GDP dynamics using nighttime lights in Google Earth Engine</p>
                             <p class="text-xs text-slate-500 dark:text-slate-400">Mendez C. (2025)</p>
                             <a href="https://code.earthengine.google.com/b8a4fa3a96056d220bcb31b6a561cb1e" target="_blank"
                                class="self-start inline-flex items-center px-4 py-1.5 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 text-xs font-semibold rounded-md hover:bg-orange-200 dark:hover:bg-orange-900/60 transition-colors">
@@ -573,55 +776,79 @@
         </div>
     </section>
 
-    <!-- Author Section -->
-    <section id="author" class="scroll-mt-20 py-16 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-12">Author</h2>
+    <!-- Contributors Section -->
+    <section id="contributors" class="scroll-mt-20 py-16 section-primary border-t border-slate-200 dark:border-slate-700">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white mb-12">Contributors</h2>
 
-            <div class="flex flex-col items-center">
-                <img src="https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q75_lanczos_center.jpg"
-                     alt="Carlos Mendez"
-                     class="w-24 h-24 rounded-full mb-4 object-cover shadow-sm border-2 border-slate-200 dark:border-slate-600">
-                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
-                    <a href="https://carlos-mendez.org" target="_blank" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Carlos Mendez</a>
-                </h3>
-                <p class="text-slate-600 dark:text-slate-400 mt-2">Associate Professor of Development Economics</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Nagoya University, Japan</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Specializing in development economics, spatial data science, and econometrics</p>
-                <a href="https://carlos-mendez.org" target="_blank"
-                   class="inline-flex items-center mt-6 px-5 py-2.5 border border-brand-600 dark:border-brand-400 text-brand-600 dark:text-brand-400 text-sm font-semibold rounded-lg hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors">
-                    Visit Website
-                    <i class="fa-solid fa-external-link ml-2 text-xs"></i>
-                </a>
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Carlos Mendez -->
+                <div class="reveal flex flex-col items-center">
+                    <img src="https://carlos-mendez.org/authors/admin/avatar_hu789af5602b0564dea21bcf1e67237882_114840_270x270_fill_q75_lanczos_center.jpg"
+                         alt="Carlos Mendez"
+                         class="contributor-avatar w-24 h-24 rounded-full mb-4 object-cover shadow-sm border-2 border-slate-200 dark:border-slate-600">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Carlos Mendez</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">Associate Professor, Nagoya University, Japan</p>
+                    <a href="https://carlos-mendez.org" target="_blank"
+                       class="inline-flex items-center mt-4 px-5 py-2 border border-brand-600 dark:border-brand-400 text-brand-600 dark:text-brand-400 text-sm font-semibold rounded-lg hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors">
+                        Visit Website
+                        <i class="fa-solid fa-external-link ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Favio Leiva Cardenas -->
+                <div class="reveal flex flex-col items-center">
+                    <img src="https://favioleiva.github.io/images/1.Principal.jpg"
+                         alt="Favio Leiva Cardenas"
+                         class="contributor-avatar w-24 h-24 rounded-full mb-4 object-cover shadow-sm border-2 border-slate-200 dark:border-slate-600">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Favio Leiva Cardenas</h3>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">PhD Student, Nagoya University, Japan</p>
+                    <a href="https://favioleiva.github.io/" target="_blank"
+                       class="inline-flex items-center mt-4 px-5 py-2 border border-brand-600 dark:border-brand-400 text-brand-600 dark:text-brand-400 text-sm font-semibold rounded-lg hover:bg-brand-50 dark:hover:bg-brand-900/30 transition-colors">
+                        Visit Website
+                        <i class="fa-solid fa-external-link ml-2 text-xs"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Citation Section -->
-    <section class="py-12 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-700">
+    <section class="py-12 section-alt border-t border-slate-200 dark:border-slate-700">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-6">
-                <h2 class="text-2xl font-bold text-slate-900 dark:text-white">How to Cite</h2>
+                <h2 class="font-display text-2xl font-bold text-slate-900 dark:text-white">How to Cite</h2>
             </div>
             <div class="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm">
                 <blockquote class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
-                    Mendez C. (2025) Computational Data Science Notebooks and Apps for Development Studies. Zenodo
+                    Mendez C. & Leiva F. (2025) Computational Data Science Notebooks and Apps for Development Studies. Zenodo
                     <a href="https://doi.org/10.5281/zenodo.15250204" target="_blank" class="text-brand-600 dark:text-brand-400 hover:underline">https://doi.org/10.5281/zenodo.15250204</a>
                 </blockquote>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg border border-slate-200 dark:border-slate-700 shadow-sm mt-4">
+                <p class="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">BibTeX</p>
+                <pre class="text-xs text-slate-700 dark:text-slate-300 leading-relaxed overflow-x-auto"><code>@misc{mendez_leiva_2025_ds4ds,
+  author       = {Mendez, Carlos and Leiva, Favio},
+  title        = {Computational Data Science Notebooks and Apps for Development Studies},
+  year         = {2025},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.15250204},
+  url          = {https://doi.org/10.5281/zenodo.15250204}
+}</code></pre>
             </div>
         </div>
     </section>
 
     <!-- Resources Section -->
-    <section id="resources" class="scroll-mt-20 py-20 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700">
+    <section id="resources" class="scroll-mt-20 py-20 section-primary border-t border-slate-200 dark:border-slate-700">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Resources</h2>
+                <h2 class="font-display text-3xl font-bold text-slate-900 dark:text-white">Resources</h2>
                 <p class="mt-4 text-lg text-slate-600 dark:text-slate-400">Extend your learning with additional materials and tools.</p>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-brands fa-github text-2xl text-slate-900 dark:text-white"></i>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">GitHub Repository</h3>
@@ -635,7 +862,7 @@
                     </a>
                 </div>
 
-                <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-graduation-cap text-2xl text-teal-600"></i>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">Google Colab</h3>
@@ -649,7 +876,7 @@
                     </a>
                 </div>
 
-                <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-quote-left text-2xl text-brand-600"></i>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">Zenodo</h3>
@@ -663,7 +890,7 @@
                     </a>
                 </div>
 
-                <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-globe text-2xl text-blue-600"></i>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">Our World in Data</h3>
@@ -677,7 +904,7 @@
                     </a>
                 </div>
 
-                <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-satellite text-2xl text-orange-600"></i>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">Google Earth Engine</h3>
@@ -691,7 +918,7 @@
                     </a>
                 </div>
 
-                <div class="p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
+                <div class="reveal p-6 rounded-xl bg-slate-50 dark:bg-slate-700 border border-slate-200 dark:border-slate-600 hover:shadow-md transition-shadow">
                     <div class="flex items-center gap-3 mb-4">
                         <i class="fa-solid fa-chart-line text-2xl text-brand-600"></i>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white">Art of Stat</h3>
@@ -707,6 +934,13 @@
             </div>
         </div>
     </section>
+
+    <!-- Scroll to Top -->
+    <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+            class="fixed bottom-6 right-6 z-50 hidden w-10 h-10 rounded-full bg-brand-500 text-white shadow-lg hover:bg-brand-600 hover:shadow-xl hover:-translate-y-0.5 transition-all flex items-center justify-center"
+            title="Back to top">
+        <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
 
     <!-- Footer -->
     <footer class="bg-slate-900 dark:bg-slate-950 text-slate-300 py-12 border-t border-slate-800">
@@ -727,7 +961,7 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="#about" class="text-slate-400 hover:text-white transition-colors">About</a></li>
                         <li><a href="#notebooks" class="text-slate-400 hover:text-white transition-colors">Notebooks</a></li>
-                        <li><a href="#author" class="text-slate-400 hover:text-white transition-colors">Author</a></li>
+                        <li><a href="#contributors" class="text-slate-400 hover:text-white transition-colors">Contributors</a></li>
                         <li><a href="#resources" class="text-slate-400 hover:text-white transition-colors">Resources</a></li>
                     </ul>
                 </div>
@@ -788,6 +1022,101 @@
             hamburger.classList.toggle('hidden');
             close.classList.toggle('hidden');
         }
+
+        // Search and Filter
+        let activeFilter = 'all';
+
+        function filterNotebooks() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.notebook-card');
+            const sections = document.querySelectorAll('.notebook-section');
+            let totalVisible = 0;
+
+            cards.forEach(function(card) {
+                const lang = card.dataset.lang;
+                const title = card.dataset.title || '';
+                const desc = card.querySelector('.line-clamp-2');
+                const descText = desc ? desc.textContent.toLowerCase() : '';
+                const matchesLang = activeFilter === 'all' || lang === activeFilter;
+                const matchesSearch = !query || title.includes(query) || descText.includes(query);
+                const visible = matchesLang && matchesSearch;
+                card.style.display = visible ? '' : 'none';
+                if (visible) totalVisible++;
+            });
+
+            sections.forEach(function(section) {
+                const visibleCards = section.querySelectorAll('.notebook-card:not([style*="display: none"])');
+                section.style.display = visibleCards.length > 0 ? '' : 'none';
+            });
+
+            document.getElementById('noResults').classList.toggle('hidden', totalVisible > 0);
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterNotebooks);
+
+        document.querySelectorAll('.filter-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                activeFilter = btn.dataset.filter;
+                filterNotebooks();
+            });
+        });
+
+        // Scroll to Top
+        var scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.addEventListener('scroll', function() {
+            if (scrollTopBtn) {
+                scrollTopBtn.classList.toggle('hidden', window.scrollY < 400);
+            }
+        });
+
+        // Scroll Reveal Animation
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(function(el, i) {
+            var parent = el.parentElement;
+            if (parent && (parent.classList.contains('grid') || parent.classList.contains('flex'))) {
+                var siblings = Array.from(parent.querySelectorAll(':scope > .reveal'));
+                var idx = siblings.indexOf(el);
+                el.style.transitionDelay = (idx * 100) + 'ms';
+            }
+            revealObserver.observe(el);
+        });
+
+        // Count-Up Animation
+        var countObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    var counters = entry.target.querySelectorAll('[data-count]');
+                    counters.forEach(function(counter) {
+                        var target = parseInt(counter.dataset.count);
+                        var duration = 1000;
+                        var start = 0;
+                        var startTime = null;
+                        function step(timestamp) {
+                            if (!startTime) startTime = timestamp;
+                            var progress = Math.min((timestamp - startTime) / duration, 1);
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            counter.textContent = Math.round(eased * target);
+                            if (progress < 1) requestAnimationFrame(step);
+                        }
+                        requestAnimationFrame(step);
+                    });
+                    countObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        var statsBar = document.getElementById('statsBar');
+        if (statsBar) countObserver.observe(statsBar);
 
         // Initialize
         document.addEventListener('DOMContentLoaded', updateDarkModeIcon);
